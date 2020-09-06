@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CallViewController.swift
 //  callmemaybe
 //
 //  Created by Paolo Esposito on 05/09/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CallViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,4 +17,3 @@ class ViewController: UIViewController {
 
 
 }
-
