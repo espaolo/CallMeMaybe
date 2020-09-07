@@ -21,7 +21,6 @@ class callmemaybeTests: XCTestCase {
     }
     
     func testNetworkClient_loginSuccessResult() {
-        
         mockSession = createMockSession(fromJsonFile: "Login", andStatusCode: 200, andError: nil)
         clientToTest = Client(withSession: mockSession)
         
@@ -74,26 +73,5 @@ class callmemaybeTests: XCTestCase {
             XCTAssertNil(LoginData)
             XCTAssertTrue(errorMessage == "Status Code: 401")
         }
-    }
-    
-    private func loadJsonData(file: String) -> Data? {
-        
-        if let jsonFilePath = Bundle(for: type(of: self)).path(forResource: file, ofType: "json") {
-            let jsonFileURL = URL(fileURLWithPath: jsonFilePath)
-            
-            if let jsonData = try? Data(contentsOf: jsonFileURL) {
-                return jsonData
-            }
-        }
-        return nil
-    }
-    
-    private func createMockSession(fromJsonFile file: String,
-                                   andStatusCode code: Int,
-                                   andError error: Error?) -> MockURLSession? {
-        
-        let data = loadJsonData(file: file)
-        let response = HTTPURLResponse(url: URL(string: "FakeUrl")!, statusCode: code, httpVersion: nil, headerFields: nil)
-        return MockURLSession(completionHandler: (data, response, error))
     }
 }

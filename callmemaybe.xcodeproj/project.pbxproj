@@ -21,6 +21,12 @@
 		84B495A325056EAF00375E38 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495A225056EAF00375E38 /* Login.swift */; };
 		84B495A6250571B600375E38 /* Login.json in Resources */ = {isa = PBXBuildFile; fileRef = 84B495A5250571B600375E38 /* Login.json */; };
 		84B495A7250574C800375E38 /* Login.json in Resources */ = {isa = PBXBuildFile; fileRef = 84B495A5250571B600375E38 /* Login.json */; };
+		84B495A925058C6900375E38 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495A825058C6900375E38 /* ContactCell.swift */; };
+		84B495AB25059B6B00375E38 /* UserCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495AA25059B6B00375E38 /* UserCall.swift */; };
+		84B495AD25059B8100375E38 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495AC25059B8100375E38 /* Room.swift */; };
+		84B495B0250639F800375E38 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495AF250639F800375E38 /* KeychainWrapper.swift */; };
+		84B495B225063A5E00375E38 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495B125063A5E00375E38 /* KeychainItemAccessibility.swift */; };
+		84BDBA5825064713003BD9FA /* ParsingUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDBA5725064713003BD9FA /* ParsingUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,12 @@
 		84B4959F25056D5C00375E38 /* Client+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+Stub.swift"; sourceTree = "<group>"; };
 		84B495A225056EAF00375E38 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		84B495A5250571B600375E38 /* Login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Login.json; sourceTree = "<group>"; };
+		84B495A825058C6900375E38 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		84B495AA25059B6B00375E38 /* UserCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCall.swift; sourceTree = "<group>"; };
+		84B495AC25059B8100375E38 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		84B495AF250639F800375E38 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		84B495B125063A5E00375E38 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		84BDBA5725064713003BD9FA /* ParsingUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,7 @@
 		84B4956F250439A300375E38 /* callmemaybe */ = {
 			isa = PBXGroup;
 			children = (
+				84B495AE250639DC00375E38 /* KeychainWrapper */,
 				84B495A425056F5300375E38 /* MockJson */,
 				84B495A125056E8200375E38 /* Models */,
 				84B4959C25056CE400375E38 /* Networking */,
@@ -104,6 +117,7 @@
 				84B49579250439A600375E38 /* Assets.xcassets */,
 				84B4957B250439A600375E38 /* LaunchScreen.storyboard */,
 				84B4957E250439A600375E38 /* Info.plist */,
+				84B495A825058C6900375E38 /* ContactCell.swift */,
 			);
 			path = callmemaybe;
 			sourceTree = "<group>";
@@ -129,6 +143,7 @@
 			children = (
 				84B4959D25056D0B00375E38 /* Client.swift */,
 				84B4959F25056D5C00375E38 /* Client+Stub.swift */,
+				84BDBA5725064713003BD9FA /* ParsingUtility.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -137,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				84B495A225056EAF00375E38 /* Login.swift */,
+				84B495AA25059B6B00375E38 /* UserCall.swift */,
+				84B495AC25059B8100375E38 /* Room.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +164,15 @@
 				84B495A5250571B600375E38 /* Login.json */,
 			);
 			path = MockJson;
+			sourceTree = "<group>";
+		};
+		84B495AE250639DC00375E38 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				84B495AF250639F800375E38 /* KeychainWrapper.swift */,
+				84B495B125063A5E00375E38 /* KeychainItemAccessibility.swift */,
+			);
+			path = KeychainWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B495A925058C6900375E38 /* ContactCell.swift in Sources */,
+				84B495AB25059B6B00375E38 /* UserCall.swift in Sources */,
 				84B495A325056EAF00375E38 /* Login.swift in Sources */,
+				84B495B0250639F800375E38 /* KeychainWrapper.swift in Sources */,
 				84B495A025056D5C00375E38 /* Client+Stub.swift in Sources */,
+				84BDBA5825064713003BD9FA /* ParsingUtility.swift in Sources */,
+				84B495B225063A5E00375E38 /* KeychainItemAccessibility.swift in Sources */,
+				84B495AD25059B8100375E38 /* Room.swift in Sources */,
 				84B49575250439A300375E38 /* LoginViewController.swift in Sources */,
 				84B49571250439A300375E38 /* AppDelegate.swift in Sources */,
 				84B4959B25044B4000375E38 /* CallViewController.swift in Sources */,

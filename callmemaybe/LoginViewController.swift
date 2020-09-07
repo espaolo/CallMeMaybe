@@ -15,6 +15,9 @@ class LoginViewController: UIViewController {
     var userNameField = UITextField()
     var pwdField = UITextField()
     var loginBtn = UIButton()
+    var clientToTest: Client!
+    var mockSession: MockURLSession!
+
     
     var midScreenHeight = UIScreen.main.bounds.height / 4
     
@@ -66,16 +69,47 @@ class LoginViewController: UIViewController {
     }
         
     @objc func loginAction(){
-        print("Good Morning")
-        UserDefaults.standard.set(true, forKey: "logged")
-        UserDefaults.standard.synchronize()
+        print("SignIn in progress...")
+        if userNameField.text == "Paolo Esposito" && userNameField.text != " " && pwdField.text != " "
+        {
+            // Login OK
+            mockSession = createMockSession(fromJsonFile: "Login", andStatusCode: 200, andError: nil)
+            clientToTest = Client(withSession: mockSession)
+            clientToTest.loginCall(url: URL(string: "FakeUrl")!) { (LoginData, errorMessage) in
+                
+                let user = LoginData!.results.first!
+                print (user)
+            }
+            loginOK()
+        } else {
+            // Login KO
+            loginKO()
+        }
+    }
+    
+    func loginOK() {
+        
+        KeychainWrapper.standard.set(userNameField.text!, forKey: "username")
+        KeychainWrapper.standard.set(pwdField.text!, forKey: "pwd")
+        KeychainWrapper.standard.set(true, forKey: "logged")
         let contactsViewController = ContactsViewController()
         let navigationController = UINavigationController(rootViewController: contactsViewController)
         let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDel.window?.rootViewController = navigationController
     }
     
-
-
+    func loginKO() {
+        
+        print ("Login failed")
+        let alertController = UIAlertController(title: "Failed", message: "Wrong credentials", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "OK", style: .cancel) { (action:UIAlertAction) in
+        }
+        alertController.addAction(action1)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
 }
 

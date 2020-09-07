@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         
-        if (UserDefaults.standard.object(forKey: "logged") as? Bool) != nil {
+        if (KeychainWrapper.standard.object(forKey: "logged") as? Bool) != nil {
             //If already logged then show Contacts screen
             self.showContactsView()
         } else {
