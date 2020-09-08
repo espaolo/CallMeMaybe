@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct UsersData: Codable {
+    var results: [Users] = []
+}
+
+struct Users: Codable {
+    var userId: Int
+    var userName: String
+    var userAvatar: String
+}
+
+

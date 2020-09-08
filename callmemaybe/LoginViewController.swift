@@ -17,10 +17,10 @@ class LoginViewController: UIViewController {
     var loginBtn = UIButton()
     var clientToTest: Client!
     var mockSession: MockURLSession!
-
-    
     var midScreenHeight = UIScreen.main.bounds.height / 4
     
+    // MARK: - Load View and Layout subviews
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -68,6 +68,8 @@ class LoginViewController: UIViewController {
         )
     }
         
+    // MARK: - Login Callbacks
+
     @objc func loginAction(){
         print("SignIn in progress...")
         if userNameField.text == "Paolo Esposito" && userNameField.text != " " && pwdField.text != " "

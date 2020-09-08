@@ -1,0 +1,45 @@
+{
+    "resultCount" : 7,
+    "results" : [
+        {
+            "userId" : 1083224,
+            "userName" : "Guglielmo Cancelli",
+            "userAvatar" : "https://mock.call.com/image/gc.jpg"
+        },
+	{
+            "userId" : 1083225,
+            "userName" : "Bruno Solfrizzi",
+            "userAvatar" : "https://mock.call.com/image/bs.jpg"
+        },
+	{
+            "userId" : 1083226,
+            "userName" : "Enrico Morossi",
+            "userAvatar" : "https://mock.call.com/image/em.jpg"
+
+        },
+	{
+            "userId" : 1083227,
+            "userName" : "Giovanni Falanga",
+            "userAvatar" : "https://mock.call.com/image/gf.jpg"
+
+        },
+	{
+            "userId" : 1083228,
+            "userName" : "Timoteo Cuoco",
+            "userAvatar" : "https://mock.call.com/image/tc.jpg"
+
+        },
+	{
+
+            "userId" : 1083229,
+            "userName" : "Nicola Bandini",
+            "userAvatar" : "https://mock.call.com/image/nb.jpg"
+
+        },
+	{
+            "userId" : 1083230,
+            "userName" : "Fernet Branca",
+            "userAvatar" : "https://mock.call.com/image/fb.jpg"
+        }
+    ]
+}

@@ -27,6 +27,8 @@
 		84B495B0250639F800375E38 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495AF250639F800375E38 /* KeychainWrapper.swift */; };
 		84B495B225063A5E00375E38 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B495B125063A5E00375E38 /* KeychainItemAccessibility.swift */; };
 		84BDBA5825064713003BD9FA /* ParsingUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDBA5725064713003BD9FA /* ParsingUtility.swift */; };
+		84BDBA5A2507EEF2003BD9FA /* Users.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BDBA592507EEF2003BD9FA /* Users.json */; };
+		84BDBA5B2507EEFA003BD9FA /* Users.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BDBA592507EEF2003BD9FA /* Users.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		84B495AF250639F800375E38 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		84B495B125063A5E00375E38 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		84BDBA5725064713003BD9FA /* ParsingUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingUtility.swift; sourceTree = "<group>"; };
+		84BDBA592507EEF2003BD9FA /* Users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Users.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,7 @@
 		84B495A425056F5300375E38 /* MockJson */ = {
 			isa = PBXGroup;
 			children = (
+				84BDBA592507EEF2003BD9FA /* Users.json */,
 				84B495A5250571B600375E38 /* Login.json */,
 			);
 			path = MockJson;
@@ -265,6 +269,7 @@
 				84B4957D250439A600375E38 /* LaunchScreen.storyboard in Resources */,
 				84B4957A250439A600375E38 /* Assets.xcassets in Resources */,
 				84B49578250439A300375E38 /* Main.storyboard in Resources */,
+				84BDBA5A2507EEF2003BD9FA /* Users.json in Resources */,
 				84B495A6250571B600375E38 /* Login.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BDBA5B2507EEFA003BD9FA /* Users.json in Resources */,
 				84B495A7250574C800375E38 /* Login.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

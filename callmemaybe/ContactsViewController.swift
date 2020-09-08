@@ -11,15 +11,26 @@ import Stevia
 
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let categoryList = ["Guglielmo Cancelli", "Bruno Solfrizzi", "Enrico Morossi", "Giovanni Falanga", "Timoteo Cuoco", "Nicola Bandini", "Fernet Branca"]
+    //  let contactsList = ["Guglielmo Cancelli", "Bruno Solfrizzi", "Enrico Morossi", "Giovanni Falanga", "Timoteo Cuoco", "Nicola Bandini", "Fernet Branca"]
+    
+    // We take the contacts list from mocked Network Call via RetrieveAction func
+    var contactsList: [String] = []
+    var clientToTest: Client!
+    var mockSession: MockURLSession!
+    var contactsDetailsArray: [String] = []
     let btn = UIButton(type: .custom)
+    var selectedItems = 0
+    
+    // MARK: - Load View and layout subviews
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ContactCell.self, forCellReuseIdentifier: "contactCell")
+        tableView.rowHeight = 50
         tableView.allowsMultipleSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
         
@@ -47,11 +58,13 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         //        btn.addTarget(self,action: #selector(CallVC.buttonTapped), for: UIControlEvent.touchUpInside)
         
         tableView.left(0).right(0).top(0).bottom(0)
-        
+        retrieveAction()
     }
     
-    
+    // MARK: - Logout user
+
     @objc func logoutAction() {
+        
         KeychainWrapper.standard.removeObject(forKey: "logged")
         let loginViewController = LoginViewController()
         let navigationController = UINavigationController(rootViewController: loginViewController)
@@ -59,24 +72,66 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         appDel.window?.rootViewController = navigationController
     }
     
+    // MARK: - TableView delegates
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList.count
+        
+        return contactsList.count
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactCell
-        cell.textLabel?.text = categoryList[indexPath.row]
+        cell.textLabel?.text = contactsList[indexPath.row]
         cell.userAvatar.image = UIImage(named: "PersonCircle")
+        
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        
         if tableView.indexPathsForSelectedRows?.count == 4 {
             return nil
         }
+        // Increment selected items and append the contact to Contacts Array
+        selectedItems += 1
+        contactsDetailsArray.append(contactsList[indexPath.row])
+        // When contacts are selected the call button is visible
         btn.isHidden = false
         return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+        //Decrement selected items
+        selectedItems -= 1
+        // If no elements are selected the Call button is hidden and Contacts array is empty
+        if selectedItems == 0 {
+            print ("Zero selected")
+            contactsDetailsArray.removeAll()
+            btn.isHidden = true
+        }
+        else {
+            // When deselct a row remove the contact from array
+            if let index = contactsDetailsArray.firstIndex(of: contactsList[indexPath.row]) {
+                contactsDetailsArray.remove(at: index)
+            }
+        }
+        return indexPath
+    }
+    
+    // MARK: - Users Retrieval from Mock API
+
+    func retrieveAction() {
+        // User retrival OK
+        mockSession = createMockSession(fromJsonFile: "Users", andStatusCode: 200, andError: nil)
+        clientToTest = Client(withSession: mockSession)
+        clientToTest.userRetrieveCall(url: URL(string: "FakeUrl")!) { (RetData, errorMessage) in
+            
+            let users = RetData!.results
+            for user in users{
+                self.contactsList.append(user.userName)
+            }
+        }
     }
 }
