@@ -74,4 +74,13 @@ class callmemaybeTests: XCTestCase {
             XCTAssertTrue(errorMessage == "Status Code: 401")
         }
     }
+    
+    func testKeychain() {
+        
+        KeychainWrapper.standard.set("FakeData", forKey: "KeychainTest")
+        let savedValue = KeychainWrapper.standard.string(forKey: "KeychainTest")
+        XCTAssertTrue(savedValue == "FakeData")
+        let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "KeychainTest")
+        XCTAssertTrue(removeSuccessful == true)
+    }
 }
