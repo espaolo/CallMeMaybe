@@ -22,18 +22,19 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     var selectedItems = 0
     
     // MARK: - Load View and layout subviews
-    
+    let tableView = UITableView()
+
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        let tableView = UITableView()
+        self.title = "Select Contacts to call"
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ContactCell.self, forCellReuseIdentifier: "contactCell")
         tableView.rowHeight = 50
         tableView.allowsMultipleSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
-        
+
         self.view.backgroundColor = .red
         navigationController?.navigationBar.isHidden = false
         // View Layout
@@ -43,23 +44,31 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         view.subviews(tableView)
         view.subviews(btn)
         btn.centerHorizontally()
-        btn.bottom(10)
+        btn.bottom(20)
         btn.style({v in
             v.setTitle("Start Call", for: .normal)
             v.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
             v.size(100)
             v.clipsToBounds = true
             v.layer.cornerRadius = 50
-            v.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            v.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             v.layer.borderWidth = 3.0
         })
-        
-        btn.isHidden = true
-        //        btn.addTarget(self,action: #selector(CallVC.buttonTapped), for: UIControlEvent.touchUpInside)
-        
+        btn.addTarget(self,action: #selector(captureAction), for: .touchUpInside)
+        btn.isHidden = true        
         tableView.left(0).right(0).top(0).bottom(0)
         retrieveAction()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = false
+        selectedItems = 0
+        contactsDetailsArray = []
+        tableView.reloadData()
+        
+    }
+
     
     // MARK: - Logout user
 
@@ -134,4 +143,41 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
+    
+    @objc func captureAction(){
+        if (contactsDetailsArray.count > 0){
+            let vc = CallViewController()
+            vc.contactsList = contactsDetailsArray
+            self.navigationController?.pushViewController(vc, animated: true)
+            displayCallPendingAlert()
+            //self.navigationController?.pushViewController(vc, animated: true)
+        }
+                
+    }
+    
+    func displayCallPendingAlert() {
+        //Create an alert controller
+        let pending = UIAlertController(title: "Join...", message: nil, preferredStyle: .alert)
+        
+        //Create an activity indicator
+        let indicator = UIActivityIndicatorView(frame: pending.view.bounds)
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        //Add the activity indicator as a subview of the alert controller's view
+        pending.view.subviews(indicator)
+        indicator.centerHorizontally()
+        indicator.isUserInteractionEnabled = false
+        indicator.startAnimating()
+        
+        // Present the View
+        self.parent?.present(pending, animated: true, completion: nil)
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // Dismiss after 3 seconds
+            indicator.stopAnimating()
+            pending.dismiss(animated: true, completion: nil)
+        }
+    }
+
+
 }

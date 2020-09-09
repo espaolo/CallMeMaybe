@@ -29,6 +29,8 @@
 		84BDBA5825064713003BD9FA /* ParsingUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDBA5725064713003BD9FA /* ParsingUtility.swift */; };
 		84BDBA5A2507EEF2003BD9FA /* Users.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BDBA592507EEF2003BD9FA /* Users.json */; };
 		84BDBA5B2507EEFA003BD9FA /* Users.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BDBA592507EEF2003BD9FA /* Users.json */; };
+		84BDBA5F250813C2003BD9FA /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDBA5E250813C2003BD9FA /* CameraView.swift */; };
+		84BDBA6125081B11003BD9FA /* UserCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDBA6025081B11003BD9FA /* UserCallView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		84B4956D250439A300375E38 /* callmemaybe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = callmemaybe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B4956D250439A300375E38 /* CallmeMaybe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallmeMaybe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B49570250439A300375E38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B49574250439A300375E38 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84B49577250439A300375E38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,8 @@
 		84B495B125063A5E00375E38 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		84BDBA5725064713003BD9FA /* ParsingUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingUtility.swift; sourceTree = "<group>"; };
 		84BDBA592507EEF2003BD9FA /* Users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Users.json; sourceTree = "<group>"; };
+		84BDBA5E250813C2003BD9FA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		84BDBA6025081B11003BD9FA /* UserCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCallView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84A11BDA25090C0C0060A0E0 /* AccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				84B495A825058C6900375E38 /* ContactCell.swift */,
+				84BDBA5E250813C2003BD9FA /* CameraView.swift */,
+				84BDBA6025081B11003BD9FA /* UserCallView.swift */,
+			);
+			path = AccessoryView;
+			sourceTree = "<group>";
+		};
 		84B49564250439A300375E38 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +113,7 @@
 		84B4956E250439A300375E38 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84B4956D250439A300375E38 /* callmemaybe.app */,
+				84B4956D250439A300375E38 /* CallmeMaybe.app */,
 				84B49583250439A600375E38 /* callmemaybeTests.xctest */,
 			);
 			name = Products;
@@ -108,6 +122,7 @@
 		84B4956F250439A300375E38 /* callmemaybe */ = {
 			isa = PBXGroup;
 			children = (
+				84A11BDA25090C0C0060A0E0 /* AccessoryView */,
 				84B495AE250639DC00375E38 /* KeychainWrapper */,
 				84B495A425056F5300375E38 /* MockJson */,
 				84B495A125056E8200375E38 /* Models */,
@@ -120,7 +135,6 @@
 				84B49579250439A600375E38 /* Assets.xcassets */,
 				84B4957B250439A600375E38 /* LaunchScreen.storyboard */,
 				84B4957E250439A600375E38 /* Info.plist */,
-				84B495A825058C6900375E38 /* ContactCell.swift */,
 			);
 			path = callmemaybe;
 			sourceTree = "<group>";
@@ -199,7 +213,7 @@
 				84B4959625044A6500375E38 /* Stevia */,
 			);
 			productName = callmemaybe;
-			productReference = 84B4956D250439A300375E38 /* callmemaybe.app */;
+			productReference = 84B4956D250439A300375E38 /* CallmeMaybe.app */;
 			productType = "com.apple.product-type.application";
 		};
 		84B49582250439A600375E38 /* callmemaybeTests */ = {
@@ -293,7 +307,9 @@
 				84B495A925058C6900375E38 /* ContactCell.swift in Sources */,
 				84B495AB25059B6B00375E38 /* UserCall.swift in Sources */,
 				84B495A325056EAF00375E38 /* Login.swift in Sources */,
+				84BDBA5F250813C2003BD9FA /* CameraView.swift in Sources */,
 				84B495B0250639F800375E38 /* KeychainWrapper.swift in Sources */,
+				84BDBA6125081B11003BD9FA /* UserCallView.swift in Sources */,
 				84B495A025056D5C00375E38 /* Client+Stub.swift in Sources */,
 				84BDBA5825064713003BD9FA /* ParsingUtility.swift in Sources */,
 				84B495B225063A5E00375E38 /* KeychainItemAccessibility.swift in Sources */,
@@ -471,7 +487,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.paolo.callmemaybe;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CallmeMaybe;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -490,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.paolo.callmemaybe;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CallmeMaybe;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -514,7 +530,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/callmemaybe.app/callmemaybe";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CallmeMaybe.app/CallmeMaybe";
 			};
 			name = Debug;
 		};
@@ -536,7 +552,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/callmemaybe.app/callmemaybe";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CallmeMaybe.app/CallmeMaybe";
 			};
 			name = Release;
 		};

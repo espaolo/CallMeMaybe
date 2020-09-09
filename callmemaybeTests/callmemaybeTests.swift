@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import callmemaybe
+@testable import CallmeMaybe
 
 class callmemaybeTests: XCTestCase {
     
@@ -134,7 +134,7 @@ class callmemaybeTests: XCTestCase {
     }
     
     func testNetworkClient_usersStatusCode() {
-        //We test Login with a 401 status code
+        //We test Users Retrieval with a 401 status code
         mockSession = createMockSession(fromJsonFile: "Users", andStatusCode: 401, andError: nil)
         clientToTest = Client(withSession: mockSession)
         

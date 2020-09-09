@@ -9,7 +9,7 @@
 import UIKit
 import Stevia
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var loginLbl = UILabel()
     var userNameField = UITextField()
@@ -26,6 +26,9 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
+        self.userNameField.delegate = self
+        self.pwdField.delegate = self
+
         
         view.subviews(
             loginLbl.style({v in
@@ -110,8 +113,17 @@ class LoginViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    
-    
+    //When user clicks anywhere on the view dismiss keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?) {
+            self.view.endEditing(true)
+        }
+
+
+    //When user clicks "Return" dismiss keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+
     
 }
-
