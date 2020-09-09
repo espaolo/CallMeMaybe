@@ -10,9 +10,11 @@ import UIKit
 import AVFoundation
 import Stevia
 
-class CallViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
-    var contactsList: [String] = []
+class CallViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, RoomDelegate {
     
+    var contactsList: [String] = []
+    let localRoom = Room()
+
     // MARK: - Load Call View and user camera preview
     
     override func viewDidLoad() {
@@ -27,9 +29,12 @@ class CallViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         let v3 = UserCallView()
         let v4 = UserCallView()
         let btn = UIButton(type: .custom)
-
+        localRoom.delegate = self
 
         print(contactsList)
+        for user in contactsList {
+            localRoom.userHasJoined(guest: user)
+        }
         
         // MARK: - Parametric View layout for 1/2/3/4 users
         
@@ -158,8 +163,22 @@ class CallViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     // MARK: - Close Call Action
 
     @objc func closeAction(){
+        for user in contactsList {
+            localRoom.userLeaved(guest: user)
+        }
+
         self.navigationController?.popViewController(animated: true)
         
     }
+    
+    // MARK: - Room Delegates
+    func didConnect(username: String) {
+        print ("The user: " + username + " has joined")
+    }
+    
+    func didDisconnect(username: String) {
+        print ("The user: " + username + " leaved")
+    }
+
     
 }

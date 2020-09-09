@@ -145,6 +145,73 @@ class callmemaybeTests: XCTestCase {
             XCTAssertTrue(errorMessage == "Status Code: 401")
         }
     }
+    
+    // MARK: - Room Delegates Test
+
+    
+    class MockRoomDelegates: RoomDelegate {
+        
+        var isUserConnected = false
+        var isUserDisconnected = false
+        var stream = CallStream()
+        func didConnect(username: String) {
+            isUserConnected = true
+        }
+        
+        func didDisconnect(username: String) {
+            isUserDisconnected = true
+        }
+        
+        func addStream(_ : CallStream) {
+            print ("Stream is added")
+        }
+        func removeStream(_ : CallStream) {
+            print ("Stream removed")
+        }
+
+    }
+    
+    func testRoomDelegateConnection() {
+        let mockDelegate = MockRoomDelegates()
+        
+        //did Connect Test
+        XCTAssertTrue(mockDelegate.isUserConnected == false)
+        mockDelegate.didConnect(username: "FakeUser")
+        XCTAssertTrue(mockDelegate.isUserConnected == true)
+        
+        // did Disconnect Test
+        XCTAssertTrue(mockDelegate.isUserDisconnected == false)
+        mockDelegate.didDisconnect(username: "FakeUser")
+        XCTAssertTrue(mockDelegate.isUserDisconnected == true)
+    }
+    
+    func testRoomDelegateStreams() {
+        let mockDelegate = MockRoomDelegates()
+        
+        //did Connect Test
+        XCTAssertTrue(mockDelegate.isUserConnected == false)
+        mockDelegate.didConnect(username: "FakeUser")
+        XCTAssertTrue(mockDelegate.isUserConnected == true)
+        
+        // did Disconnect Test
+        XCTAssertTrue(mockDelegate.isUserDisconnected == false)
+        mockDelegate.didDisconnect(username: "FakeUser")
+        XCTAssertTrue(mockDelegate.isUserDisconnected == true)
+        
+        let streamToTest = mockDelegate.stream
+        let storedAudioValue = streamToTest.hasAudio
+        let storedVideoValue = streamToTest.hasVideo
+        
+        // Test Audio Stream
+        streamToTest.toggleAudio()
+        XCTAssertTrue(storedAudioValue != streamToTest.hasAudio)
+        
+        // Test Video Stream
+        streamToTest.toggleVideo()
+        XCTAssertTrue(storedVideoValue != streamToTest.hasVideo)
+    }
+
+
 
 
 
