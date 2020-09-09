@@ -12,4 +12,9 @@ The App uses Stevia Framework for View layout, has its core functionality unit-t
 
 <img src="iPhoneSE_Contacts.png" width="250" height="444">
 
+**Camera Call Screen**
+
+<img src="iphoneCameraCall.jpg" width="250" height="444">
+
+
 
