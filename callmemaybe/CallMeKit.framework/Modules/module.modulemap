@@ -1,0 +1,11 @@
+framework module CallMeKit {
+  umbrella header "CallMeKit.h"
+
+  export *
+  module * { export * }
+}
+
+module CallMeKit.Swift {
+    header "CallMeKit-Swift.h"
+    requires objc
+}

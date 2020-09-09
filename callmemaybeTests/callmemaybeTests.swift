@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CallMeKit
 @testable import CallmeMaybe
 
 class callmemaybeTests: XCTestCase {

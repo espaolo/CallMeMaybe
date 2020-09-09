@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84A11BDC250917170060A0E0 /* RoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A11BDB250917170060A0E0 /* RoomDelegate.swift */; };
+		84A11C24250944AF0060A0E0 /* CallMeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A11C22250944AC0060A0E0 /* CallMeKit.framework */; };
+		84A11C25250944AF0060A0E0 /* CallMeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84A11C22250944AC0060A0E0 /* CallMeKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		84B49571250439A300375E38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B49570250439A300375E38 /* AppDelegate.swift */; };
 		84B49575250439A300375E38 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B49574250439A300375E38 /* LoginViewController.swift */; };
 		84B49578250439A300375E38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B49576250439A300375E38 /* Main.storyboard */; };
@@ -44,8 +45,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		84A11C1025093DCE0060A0E0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84A11C25250944AF0060A0E0 /* CallMeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		84A11BDB250917170060A0E0 /* RoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDelegate.swift; sourceTree = "<group>"; };
+		84A11C22250944AC0060A0E0 /* CallMeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CallMeKit.framework; sourceTree = "<group>"; };
 		84B4956D250439A300375E38 /* CallmeMaybe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallmeMaybe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B49570250439A300375E38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B49574250439A300375E38 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B4959725044A6500375E38 /* Stevia in Frameworks */,
+				84A11C24250944AF0060A0E0 /* CallMeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +146,6 @@
 				84B495A125056E8200375E38 /* Models */,
 				84B4959C25056CE400375E38 /* Networking */,
 				84B49570250439A300375E38 /* AppDelegate.swift */,
-				84A11BDB250917170060A0E0 /* RoomDelegate.swift */,
 				84B49574250439A300375E38 /* LoginViewController.swift */,
 				84B4959825044B2400375E38 /* ContactsViewController.swift */,
 				84B4959A25044B4000375E38 /* CallViewController.swift */,
@@ -138,6 +153,7 @@
 				84B49579250439A600375E38 /* Assets.xcassets */,
 				84B4957B250439A600375E38 /* LaunchScreen.storyboard */,
 				84B4957E250439A600375E38 /* Info.plist */,
+				84A11C22250944AC0060A0E0 /* CallMeKit.framework */,
 			);
 			path = callmemaybe;
 			sourceTree = "<group>";
@@ -206,6 +222,7 @@
 				84B49569250439A300375E38 /* Sources */,
 				84B4956A250439A300375E38 /* Frameworks */,
 				84B4956B250439A300375E38 /* Resources */,
+				84A11C1025093DCE0060A0E0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,7 +329,6 @@
 				84B495A325056EAF00375E38 /* Login.swift in Sources */,
 				84BDBA5F250813C2003BD9FA /* CameraView.swift in Sources */,
 				84B495B0250639F800375E38 /* KeychainWrapper.swift in Sources */,
-				84A11BDC250917170060A0E0 /* RoomDelegate.swift in Sources */,
 				84BDBA6125081B11003BD9FA /* UserCallView.swift in Sources */,
 				84B495A025056D5C00375E38 /* Client+Stub.swift in Sources */,
 				84BDBA5825064713003BD9FA /* ParsingUtility.swift in Sources */,
@@ -484,6 +500,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJ73E459K3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/callmemaybe",
+				);
 				INFOPLIST_FILE = callmemaybe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -503,6 +524,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJ73E459K3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/callmemaybe",
+				);
 				INFOPLIST_FILE = callmemaybe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -523,6 +549,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJ73E459K3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/callmemaybe",
+				);
 				INFOPLIST_FILE = callmemaybeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -545,6 +575,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJ73E459K3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/callmemaybe",
+				);
 				INFOPLIST_FILE = callmemaybeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
