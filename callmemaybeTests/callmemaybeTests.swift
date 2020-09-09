@@ -153,6 +153,9 @@ class callmemaybeTests: XCTestCase {
         
         var isUserConnected = false
         var isUserDisconnected = false
+        var isStreamAdded = false
+        var isStreamRemoved = false
+        
         var stream = CallStream()
         func didConnect(username: String) {
             isUserConnected = true
@@ -163,10 +166,10 @@ class callmemaybeTests: XCTestCase {
         }
         
         func addStream(_ : CallStream) {
-            print ("Stream is added")
+            isStreamAdded = true
         }
         func removeStream(_ : CallStream) {
-            print ("Stream removed")
+            isStreamRemoved = true
         }
 
     }
@@ -198,7 +201,20 @@ class callmemaybeTests: XCTestCase {
         mockDelegate.didDisconnect(username: "FakeUser")
         XCTAssertTrue(mockDelegate.isUserDisconnected == true)
         
+        
         let streamToTest = mockDelegate.stream
+        
+        // add Stream Test
+        XCTAssertTrue(mockDelegate.isStreamAdded == false)
+        mockDelegate.addStream(streamToTest)
+        XCTAssertTrue(mockDelegate.isStreamAdded == true)
+        
+        // remove Stream Test
+        XCTAssertTrue(mockDelegate.isStreamRemoved == false)
+        mockDelegate.removeStream(streamToTest)
+        XCTAssertTrue(mockDelegate.isStreamRemoved == true)
+
+        // retrieve random generated stored Stream values
         let storedAudioValue = streamToTest.hasAudio
         let storedVideoValue = streamToTest.hasVideo
         
@@ -209,6 +225,7 @@ class callmemaybeTests: XCTestCase {
         // Test Video Stream
         streamToTest.toggleVideo()
         XCTAssertTrue(storedVideoValue != streamToTest.hasVideo)
+        
     }
 
 
